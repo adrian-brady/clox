@@ -9,7 +9,7 @@ void initChunk(Chunk* chunk) {
   chunk->code = NULL;
 }
 
-void writeChunk(Chunk *chunk, uint8_t byte) {
+void writeChunk(Chunk* chunk, uint8_t byte) {
   if (chunk->capacity < chunk->count + 1) {
     int oldCapacity = chunk->capacity;
     chunk->capcity = GROW_CAPACITY(oldCapacity);
