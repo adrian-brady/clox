@@ -19,7 +19,7 @@ void initVM() {
 void freeVM() {}
 
 void push(Value value) {
-  *vm.stack = value;
+  *vm.stackTop = value;
   vm.stackTop++;
 }
 
