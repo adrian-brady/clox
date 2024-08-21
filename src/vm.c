@@ -51,11 +51,14 @@ static InterpretResult run() {
       case OP_CONSTANT: {
         Value constant;
         constant = READ_CONSTANT();
+        push(constant);
         printValue(constant);
         printf("\n");
         break;
       }
       case OP_RETURN:
+        printValue(pop());
+        printf("\n");
         return INTERPRET_OK;
     }
   }
