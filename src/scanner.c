@@ -13,6 +13,16 @@ typedef struct scanner {
 
 Scanner scanner;
 
+/**
+ * Initializes the values of the scanner using the input string provided.
+ *
+ * @param source The input to scan with the scanner.
+ *
+ * @side_effects
+ * - scanner.start is set to 'source'
+ * - scanner.current is set to 'source'
+ * - scanner.line is set to 1
+ */
 void initScanner(const char* source) {
   scanner.start = source;
   scanner.current = source;
@@ -25,6 +35,17 @@ static bool isAlpha(char c) {
           (c == '_');
 }
 
+/**
+ * @brief Check if the given character is a number.
+ *
+ * This function checks whether the given character is a decimal number between 0 and 9.
+ * 
+ * @return [bool] Returns 'true' if the given character is a number between 0 and 9, and
+ * returns 'false' if the character is not a number between 0 and 9.
+ *
+ * @side_effects
+ * - None
+ */
 static bool isDigit(char c) {
   return c >= '0' && c <= '9';
 }
@@ -63,11 +84,29 @@ static char advance() {
 
 /**
  * @brief Return the scanner's current char.
+ *
+ * This function returns the char pointed to by the scanner's 'current' field.
+ *
+ * @return [char] The char pointed to by the scanner's 'current' field.
+ *
+ * @side_effects
+ * - None
  */
 static char peek() {
   return *scanner.current;
 }
 
+/**
+ * @brief Return the scanner's next char, if the next char is not the end of the input.
+ *
+ * This function returns the character next of the current character pointed to by the
+ * scanner's 'current' field.
+ *
+ * @return [char] The char next of the current char pointed to by the 'current' field.
+ *
+ * @side_effects
+ * - None
+ */
 static char peekNext() {
   if (isAtEnd()) return '\0';
   return scanner.current[1];
