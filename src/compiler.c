@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "chunk.h"
 #include "common.h"
 #include "compiler.h"
 #include "debug.h"
@@ -137,10 +138,10 @@ static void binary() {
   parsePrecedence((Precedence)(rule->precedence + 1));
 
   switch (operatorType) {
-    case TOKEN_PLUS:
-    case TOKEN_MINUS:
-    case TOKEN_STAR:
-    case TOKEN_SLASH:
+    case TOKEN_PLUS:            emitByte(OP_ADD); break;
+    case TOKEN_MINUS:           emitByte(OP_SUBTRACT); break;
+    case TOKEN_STAR:            emitByte(OP_MULTIPLY); break;
+    case TOKEN_SLASH:           emitByte(OP_DIVIDE); break;
     default:
       return;
   }
