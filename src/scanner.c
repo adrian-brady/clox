@@ -40,9 +40,6 @@ static bool isDigit(char c) {
  *
  * @side_effects
  * - None.
- *
- * @remarks
- * - This functions is static, meaning it is only available within this file.
  */
 static bool isAtEnd() {
   return *scanner.current == '\0';
@@ -58,10 +55,6 @@ static bool isAtEnd() {
  *
  * @side_effects
  * - Increments `scanner.current`.
- *
- * @remarks
- * - This function is static, meaning it is only available within
- *   the file in which it was defined.
  */
 static char advance() {
   scanner.current++;
@@ -95,10 +88,6 @@ static char peekNext() {
  *
  * @side_effects
  * - Increments 'scanner.current' if returning `true`.
- *
- * @remarks
- * - This function is static, meaning it is only available within
- *   the file in which it was defined.
  */
 static bool match(char expected) {
   if (isAtEnd()) return false;
@@ -120,10 +109,6 @@ static bool match(char expected) {
  *
  * @side_effects
  * - None
- *
- * @remarks
- * - This function is static, meaning it is only available within
- *   the file in which it was defined.
  */
 static Token makeToken(TokenType type) {
   Token token;
@@ -147,10 +132,6 @@ static Token makeToken(TokenType type) {
  *
  * @side_effects
  * - None
- *
- * @remarks
- * - This function is static, meaning it is only available within
- *   the file in which it was defined.
  */
 static Token errorToken(const char* message) {
   Token token;
